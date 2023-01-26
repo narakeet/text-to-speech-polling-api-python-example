@@ -8,7 +8,7 @@ produce professional quality uncompressed WAV files using realistic text to
 speech.
 
 Note that Narakeet also has a simpler text to speech API, suitable for smaller conversion tasks, that directly streams back the results. 
-See the [Short Content Text to Speech API Example](https://github.com/narakeet/text-to-speech-api-python-example) for more information on how to use that.
+See the [Streaming Text to Speech API Example](https://github.com/narakeet/text-to-speech-api-python-example) for more information on how to use that.
 
 The example sends a request to generate an audio file, then downloads the resulting audio into a local file. 
 
