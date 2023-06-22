@@ -29,7 +29,7 @@ class AudioAPI:
             response = requests.get(task_url)
             response.raise_for_status()
             data = response.json()
-            if data['finished']:
+            if data.get('finished', False):
                 break
 
             if progress_callback:

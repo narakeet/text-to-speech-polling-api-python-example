@@ -7,7 +7,7 @@ voice = "victoria"
 script = "Hello there from the long content API. This is Victoria speaking!"
 
 def show_progress(progress_data):
-    # change this to do something smarter with percent, message and thumbnail
+    # change this to do something smarter with percent and message
     print(progress_data)
 
 api = AudioAPI(api_key)

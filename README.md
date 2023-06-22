@@ -1,7 +1,7 @@
 # Narakeet Long content (polling) text to speech API example in Python
 
 This repository provides a quick example demonstrating how to access the
-Narakeet [Long Content API](https://www.narakeet.com/docs/automating/text-to-speech-api/) from Python.
+Narakeet [Long Content API](https://www.narakeet.com/docs/automating/text-to-speech-api/#polling) from Python.
 
 The long content API is suitable for large audio conversion tasks, and can
 produce professional quality uncompressed WAV files using realistic text to
