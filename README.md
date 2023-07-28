@@ -25,8 +25,15 @@ To use this example, you will need Python (3.7 or more recent), and an API key f
 3. run `pip install -r requirements.txt` to install the required libraries
 4. run `python audio.py` to create the output audio.
 
+## Converting VTT subtitle files
+
+1. set and export a local environment variable called `NARAKEET_API_KEY`, containing your API key (or modify [convert-vtt.py](convert-vtt.py) line 4 to include your API key).
+2. optionally edit [convert-vtt.py](convert-vtt.py) and modify the input file, format, voice and speed (lines 5-8).
+3. run `pip install -r requirements.txt` to install the required libraries
+4. run `python convert-vtt.py` to create the output audio.
+
 ## More information
 
-Check out <https://www.narakeet.com/docs/automating/rest/> for more information on the Narakeet API features.
+Check out <https://www.narakeet.com/docs/automating/text-to-speech-api/> for more information on the Narakeet API features.
 
 

@@ -24,6 +24,22 @@ class AudioAPI:
         response.raise_for_status()
         return response.json()
 
+    def request_vtt_task(self, vtt_file, voice, voice_speed = 1, format = 'mp3'):
+        url = f'{self.api_url}/text-to-speech/{format}?voice={voice}&voice-speed={voice_speed}'
+        with open(vtt_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+            options = {
+                'headers': {
+                    'Content-Type': 'text/vtt',
+                    'x-api-key': self.api_key,
+                },
+                'data': text.encode('utf8')
+            }
+            response = requests.post(url, **options)
+            response.raise_for_status()
+        return response.json()
+
+
     def poll_until_finished(self, task_url, progress_callback=None):
         while True:
             response = requests.get(task_url)
