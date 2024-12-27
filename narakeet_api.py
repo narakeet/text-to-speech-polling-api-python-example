@@ -20,9 +20,15 @@ class AudioAPI:
             },
             'data': text.encode('utf8')
         }
-        response = requests.post(url, **options)
-        response.raise_for_status()
-        return response.json()
+        try:
+            response = requests.post(url, **options)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.HTTPError as e:
+            # Enhance the error message to include response content if available
+            error_message = f'HTTP error occurred: {e.response.status_code} - {e.response.reason}'
+            error_details = e.response.text
+            raise Exception(f'{error_message}. Details: {error_details}') from None
 
     def request_vtt_task(self, vtt_file, voice, voice_speed = 1, format = 'mp3'):
         url = f'{self.api_url}/text-to-speech/{format}?voice={voice}&voice-speed={voice_speed}'
@@ -35,10 +41,15 @@ class AudioAPI:
                 },
                 'data': text.encode('utf8')
             }
+        try:
             response = requests.post(url, **options)
             response.raise_for_status()
-        return response.json()
-
+            return response.json()
+        except requests.exceptions.HTTPError as e:
+            # Enhance the error message to include response content if available
+            error_message = f'HTTP error occurred: {e.response.status_code} - {e.response.reason}'
+            error_details = e.response.text
+            raise Exception(f'{error_message}. Details: {error_details}') from None
 
     def poll_until_finished(self, task_url, progress_callback=None):
         while True:
